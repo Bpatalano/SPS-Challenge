@@ -1,0 +1,24 @@
+{
+  "name": "sps-challenge",
+  "version": "1.0.0",
+  "description": "small project for framing photos",
+  "main": "index.js",
+  "scripts": {
+    "test": "npm run test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Bpatalano/SPS-Challenge.git"
+  },
+  "author": "ben patalano",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Bpatalano/SPS-Challenge/issues"
+  },
+  "homepage": "https://github.com/Bpatalano/SPS-Challenge#readme",
+  "dependencies": {
+    "bootstrap": "^3.3.7",
+    "filepicker-js": "^2.4.17",
+    "jquery": "^3.1.1"
+  }
+}
