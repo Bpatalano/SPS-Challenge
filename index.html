@@ -1,18 +1,145 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <meta charset="utf-8">
   <title></title>
   <link type="text/css" rel="stylesheet" href="index.css"/>
-  <script src='index.js'></script>
+  <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css"/>
+  <script src="node_modules/jquery/dist/jquery.min.js"></script>
+  <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+  <script src="index.js"></script>
 </head>
 <body>
-  <div id='photoviewer'>
-    
+  <div class="container-fluid">
+    <div>
+      <div class="col-md-6" id="photoViewer">
+        <div id="frame">
+          <!-- <div id="mat"> -->
+            <img id="photo" src="http://jennyross.com/gallery/d/439-3/Panda+Portrait.jpg"></img>
+          <!-- </div> -->
+        </div>
+      </div>
+      <div class="col-md-6" id="photoDetailer">
+        <form class="form-horizontal" id="photoDetailerForm">
+          <div class="form-group">
+            <label for="sizeSelect" class="col-md-offset-2 col-md-6 control-label">How wide would you like your photo?</label>
+          </div>
+          <div class="form-group">
+            <div class="form-inline" id="sizeSelect">
+              <label for="heightInch" class="control-label col-md-2"> Height</label>
+              <input class="col-md-2 form-control" type="number" name="heightInch" id="heightInch">
+              <select class="col-md-2 form-control" id="heightFraction">
+                <option>0</option>
+                <option>1/8</option>
+                <option>1/4</option>
+                <option>3/8</option>
+                <option>1/2</option>
+                <option>5/8</option>
+                <option>3/4</option>
+                <option>7/8</option>
+              </select>
+              <label for="widthInch" class="control-label col-md-2"> Width</label>
+              <input class="col-md-2 form-control" type="number" name="widthInch" id="widthInch">
+              <select class="col-md-2 form-control" id="widthFraction">
+                <option>0</option>
+                <option>1/8</option>
+                <option>1/4</option>
+                <option>3/8</option>
+                <option>1/2</option>
+                <option>5/8</option>
+                <option>3/4</option>
+                <option>7/8</option>
+              </select>  
+            </div>
+          </div>
+          <div class="form-group">
+            <button class="col-md-offset-4 col-md-4 btn btn-default" id="photoUpload">
+              Upload a photo
+            </button>
+          </div>
+          <div class="form-group">
+            <label for="profileSelect" class="col-md-offset-2 col-md-2 control-label">Profile</label>
+            <div class="form-inline" id="profileSelect">
+              <div class="form-group col-md-2">
+                <button class="btn btn-default" id="leftProfile">left</button>
+              </div>
+              <div class="form-group col-md-2">  
+                <img class="img-thumbnail" id="profileImg" src="https://d29mtkonxnc5fw.cloudfront.net/site_assets/corner_shots/black-corner-large.jpg"></img> 
+              </div>
+              <div class="form-group col-md-2">  
+                <button class="btn btn-default" id="rightProfile">right</button>
+              </div>
+              <p id="profileName">Black Maple</p>
+            </div>
+          </div>
+          <div>
+            <div class="form-group" id="customizer">
+              <label for="styleSelect" class="col-md-offset-2 col-md-2 control-label">Style</label>
+              <div id="styleSelect">
+                <label class="radio-inline">
+                  <input type="radio" name="styleSelect" id="ratio" value="ratio" checked> Golden Ratio
+                </label>
+                <label class="radio-inline">
+                  <input type="radio" name="styleSelect" id="custom" value="custom"> Custom
+                </label>
+              </div>
+            </div>
+            <div class="form-inline form-group col-md-offset-2" id="customForm">
+              <div class="form-group col-md-6">
+                <label for="frameWidth" class="control-label col-md-9">Frame Width</label>
+                <select class="form-control" id="frameWidth" disabled>
+                  <option>1</option>
+                  <option>2</option>
+                  <option>3</option>
+                  <option>4</option>
+                </select>
+              </div>
+              <div class="form-group col-md-4">
+                <label for="matWidth" class="control-label col-md-6">Mat Width</label>
+                <select class="form-control" id="matWidth" disabled>
+                  <option>1</option>
+                  <option>2</option>
+                  <option>3</option>
+                  <option>4</option>
+                </select>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="matColor" class="col-md-offset-2 col-md-2 control-label">Mat Color</label>
+              <form class="radio" id="matColor">
+                <label class="radio-inline">
+                  <input type="radio" name="matColor" value="White" id="matWhite" checked> White
+                </label>
+                <label class="radio-inline">
+                  <input type="radio" name="matColor" value="Black" id="matBlack"> Black
+                </label>
+              </form>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="col-md-offset-2 col-md-2 control-label">Price</label>
+            <div class="col-md-8">
+              <p class="form-control-static">$45</p>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="col-md-offset-2 col-md-2 control-label">Description</label>
+            <div class="col-md-8">
+              <p class="form-control-static">Your photo is currently </p>
+            </div>
+          </div>
+          <div class="form-group">
+            <button class="col-md-offset-4 col-md-4 btn btn-default" id="finalize">
+              Finalize
+            </button>
+          </div>
+        </form>
 
+      </div>
+    </div>
   </div>
-  <div id='customizer'>
-    
-
-  </div>
+  <script type="text/javascript">
+    $(document).ready(init)
+  </script>
 </body>
 </html>

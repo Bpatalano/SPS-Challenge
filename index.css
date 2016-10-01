@@ -1,0 +1,27 @@
+
+#frame {
+  border-color: #21171f;
+  border-width: 2em;
+  border-style: solid;
+  margin: auto;
+  max-width: 24em;
+}
+/*#mat {
+  background-color: white;
+  padding-right: 3em;
+  padding-left: 3em;
+  padding-bottom: 4em;
+  padding-top: 4em;
+}*/
+#photo {
+  max-width: 100%;
+  display: block;
+  border-color: white;
+  border-style: solid;
+  border-width: 2em;
+}
+#profileImg {
+  max-height: 34px;
+  display: block;
+  margin-left: 8px;
+}
