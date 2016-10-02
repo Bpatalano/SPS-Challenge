@@ -4,9 +4,9 @@
   <meta charset="utf-8">
   <title></title>
   <link type="text/css" rel="stylesheet" href="index.css"/>
-  <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css"/>
-  <script src="node_modules/jquery/dist/jquery.min.js"></script>
-  <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css"/>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+  <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
   <script src="index.js"></script>
 </head>
 <body>
@@ -21,42 +21,6 @@
       </div>
       <div class="col-md-6" id="photoDetailer">
         <form class="form-horizontal" id="photoDetailerForm">
-          <div class="form-group">
-            <label for="sizeSelect" class="col-md-offset-2 col-md-6 control-label">How wide would you like your photo?</label>
-          </div>
-          <div class="form-group">
-            <div class="form-inline" id="sizeSelect">
-              <label for="heightInch" class="control-label col-md-2"> Height</label>
-              <input class="col-md-2 form-control" type="number" name="heightInch" id="heightInch">
-              <select class="col-md-2 form-control" id="heightFraction">
-                <option>0</option>
-                <option>1/8</option>
-                <option>1/4</option>
-                <option>3/8</option>
-                <option>1/2</option>
-                <option>5/8</option>
-                <option>3/4</option>
-                <option>7/8</option>
-              </select>
-              <label for="widthInch" class="control-label col-md-2"> Width</label>
-              <input class="col-md-2 form-control" type="number" name="widthInch" id="widthInch">
-              <select class="col-md-2 form-control" id="widthFraction">
-                <option>0</option>
-                <option>1/8</option>
-                <option>1/4</option>
-                <option>3/8</option>
-                <option>1/2</option>
-                <option>5/8</option>
-                <option>3/4</option>
-                <option>7/8</option>
-              </select>  
-            </div>
-          </div>
-          <div class="form-group">
-            <button class="col-md-offset-4 col-md-4 btn btn-default" id="photoUpload">
-              Upload a photo
-            </button>
-          </div>
           <div class="form-group">
             <label for="profileSelect" class="col-md-offset-2 col-md-2 control-label">Profile</label>
             <div class="form-inline" id="profileSelect">
@@ -89,17 +53,20 @@
                 <label for="frameWidth" class="control-label col-md-9">Frame Width</label>
                 <select class="form-control" id="frameWidth" disabled>
                   <option>1</option>
-                  <option>2</option>
-                  <option>3</option>
-                  <option>4</option>
+                  <option>1.25</option>
+                  <option>1.5</option>
+                  <option>1.75</option>
                 </select>
               </div>
               <div class="form-group col-md-4">
                 <label for="matWidth" class="control-label col-md-6">Mat Width</label>
                 <select class="form-control" id="matWidth" disabled>
                   <option>1</option>
+                  <option>1.5</option>
                   <option>2</option>
+                  <option>2.5</option>
                   <option>3</option>
+                  <option>3.5</option>
                   <option>4</option>
                 </select>
               </div>

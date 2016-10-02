@@ -17,8 +17,10 @@
   },
   "homepage": "https://github.com/Bpatalano/SPS-Challenge#readme",
   "dependencies": {
-    "bootstrap": "^3.3.7",
-    "filepicker-js": "^2.4.17",
-    "jquery": "^3.1.1"
+    "body-parser": "^1.15.2",
+    "cookie-parser": "^1.4.3",
+    "cookie-session": "^2.0.0-alpha.1",
+    "ejs": "^2.5.2",
+    "express": "^4.14.0"
   }
 }

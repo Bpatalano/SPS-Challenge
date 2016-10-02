@@ -1,8 +1,4 @@
 var init = function() {
-  var $heightInch = $('#heightInch');
-  var $heightFraction = $('#heightFraction');
-  var $widthInch = $('#widthInch');
-  var $widthFraction = $('#widthFraction');
   var $frameWidth = $('#frameWidth');
   var $matWidth = $('#matWidth');
   var $profile = $('#profileName');
@@ -12,18 +8,24 @@ var init = function() {
   var $style = $('input:radio[name=styleSelect]');
   var $matRadio = $('input:radio[name=matColor]');
   var $customStyle = $('#customForm');
-  var $photoUpload = $('#photoUpload');
   var $finalize = $('#finalize');
   var $mat = $('#mat');
   var $frame = $('#frame');
   var $photo = $('#photo');
-  
-  
+  var photoUrl = 'http://jennyross.com/gallery/d/439-3/Panda+Portrait.jpg';
+  var photoWidth = 0;
+  var photoHeight = 0;
+  $.get('/session', function(resp){
+    photoUrl = resp.photoUrl;
+    photoWidth = Number(resp.photoWidth);
+    photoHeight = resp.photoHeight;
+    photoResize();
+    $photo.attr('src', photoUrl);
+  })
+  $('#photoDetailerForm').submit(false);
   
   var photoResize = function() {
-    var photoWidth = Number($widthInch.val()) + Number(eval($widthFraction.val()))
     var scale = (2 * Number($matWidth.val())) + (2 * Number($frameWidth.val())) + photoWidth;
-    console.log(scale, ($frameWidth.val()/scale * 12 + 'em'), ($matWidth.val()/scale * 12 + 'em'));
     $frame.css('border-width', ($frameWidth.val()/scale * 24 + 'em'));
     $photo.css('border-width', ($matWidth.val()/scale * 24 + 'em'));
   }
@@ -53,9 +55,9 @@ var init = function() {
     $profileImg.attr('src', profiles[selected].photoUrl);
     $profile.text(profiles[selected].name);
     $frame.css('border-color', profiles[selected].color);
-  }
+  };
 
-  //$photoUpload.on('click', );
+  
   $matRadio.change(function() {
     $photo.css('border-color', $(this).val());
   });
@@ -74,8 +76,6 @@ var init = function() {
   });
   $finalize.on('click', (e)=>{
     e.preventDefault();
-    var photoHeight = Number($heightInch.val()) + Number(eval($heightFraction.val()))
-    var photoWidth = Number($widthInch.val()) + Number(eval($widthFraction.val()))
     var specs = {};
     specs.photoHeight = photoHeight;
     specs.photoWidth = photoWidth;
@@ -83,25 +83,18 @@ var init = function() {
     specs.matWidth = Number($matWidth.val());
     specs.profile = $profile.text();
     specs.matColor = $('input:radio[name=matColor]:checked').val();
-    console.log(specs);
-  })
-  $('#photoDetailerForm').submit(false);
-  $widthInch.change(function(e) {
-    e.preventDefault();
-    photoResize();
-  });
-  $widthFraction.change(function(e) {
-    e.preventDefault();
-    photoResize();
+    $.post('/', specs, function(resp) {
+      window.location = resp;
+    });
   });
   $frameWidth.change(function(e) {
     e.preventDefault();
     photoResize();
-  })
+  });
   $matWidth.change(function(e) {
     e.preventDefault();
     photoResize();
-  })
+  });
   $leftProfile.click(function(e) {
     if (selected > 0) {
       selected --;
@@ -110,7 +103,7 @@ var init = function() {
       selected = 3;
     }
     frameChange();
-  })
+  });
   $rightProfile.click(function(e) {
     if (selected < 3) {
       selected ++;
@@ -119,6 +112,6 @@ var init = function() {
       selected = 0;
     }
     frameChange();
-  })
+  });
 
-}
+};

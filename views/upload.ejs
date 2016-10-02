@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title></title>
+  <link type="text/css" rel="stylesheet" href="index.css"/>
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css"/>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+  <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="//api.filestackapi.com/filestack.js"></script>
+  <script src="upload.js"></script>
+  <script src="APIkey.js"></script>
+</head>
+<body>
+  <div class="container" id="photoUploadPreview">
+    <img src="http://jennyross.com/gallery/d/439-3/Panda+Portrait.jpg" id="uploadedPhoto"><img>
+  </div>
+  <div class="form-horizontal col-md-12">
+    <div class="form-group" id="photoUpload">
+      <button class="btn btn-default col-md-offset-5 col-md-2" id="photoUploadButton">
+        Upload a photo
+      </button>
+    </div>
+    <div class="form-group">
+      <div class="form-inline" id="sizeSelect">
+        <!-- <label for="heightInch" class="control-label col-md-2"> Height</label>
+        <input class="col-md-2 form-control" type="number" name="heightInch" id="heightInch">
+        <select class="col-md-2 form-control" id="heightFraction">
+          <option>0</option>
+          <option>1/8</option>
+          <option>1/4</option>
+          <option>3/8</option>
+          <option>1/2</option>
+          <option>5/8</option>
+          <option>3/4</option>
+          <option>7/8</option>
+        </select> -->
+        <label for="widthInch" class="col-md-offset-3 control-label col-md-2"> Width (in.) </label>
+        <input class="col-md-2 form-control" type="number" value="4" name="widthInch" id="widthInch">
+        <select class="col-md-2 form-control" id="widthFraction">
+          <option>0</option>
+          <option>1/8</option>
+          <option>1/4</option>
+          <option>3/8</option>
+          <option>1/2</option>
+          <option>5/8</option>
+          <option>3/4</option>
+          <option>7/8</option>
+        </select>  
+      </div>
+    </div>
+    <div class="form-group">
+      <button class="col-md-offset-5 col-md-2 btn btn-default" id="continue">
+        Continue
+      </button>
+    </div>
+  </div>
+</body>
+  <script type="text/javascript">
+    $(document).ready(init)
+  </script>
+</html>
