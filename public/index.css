@@ -14,11 +14,11 @@
   padding-top: 4em;
 }*/
 #photo {
+  max-height: 100%;
   max-width: 100%;
-  display: block;
   border-color: white;
   border-style: solid;
-  border-width: 2em;
+  margin: auto;
 }
 #profileImg {
   max-height: 34px;

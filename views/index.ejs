@@ -41,33 +41,32 @@
               <label for="styleSelect" class="col-md-offset-2 col-md-2 control-label">Style</label>
               <div id="styleSelect">
                 <label class="radio-inline">
-                  <input type="radio" name="styleSelect" id="ratio" value="ratio" checked> Golden Ratio
+                  <input type="radio" name="styleSelect" id="ratio" value="ratio"> Golden Ratio
                 </label>
                 <label class="radio-inline">
-                  <input type="radio" name="styleSelect" id="custom" value="custom"> Custom
+                  <input type="radio" name="styleSelect" id="custom" value="custom" checked> Custom
                 </label>
               </div>
             </div>
             <div class="form-inline form-group col-md-offset-2 photoRow" id="customForm">
               <div class="form-group col-md-6">
                 <label for="frameWidth" class="control-label col-md-9">Frame Width</label>
-                <select class="form-control" id="frameWidth" disabled>
+                <select class="form-control" id="frameWidth" >
+                  <option>0.75</option>
                   <option>1</option>
                   <option>1.25</option>
-                  <option>1.5</option>
-                  <option>1.75</option>
                 </select>
               </div>
               <div class="form-group col-md-4">
                 <label for="matWidth" class="control-label col-md-6">Mat Width</label>
-                <select class="form-control" id="matWidth" disabled>
+                <select class="form-control" id="matWidth" >
+                  <option>0</option>
                   <option>1</option>
                   <option>1.5</option>
                   <option>2</option>
                   <option>2.5</option>
                   <option>3</option>
                   <option>3.5</option>
-                  <option>4</option>
                 </select>
               </div>
             </div>

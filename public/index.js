@@ -19,15 +19,19 @@ var init = function() {
     photoUrl = resp.photoUrl;
     photoWidth = Number(resp.photoWidth);
     photoHeight = resp.photoHeight;
-    photoResize();
     $photo.attr('src', photoUrl);
+    photoResize();
   })
   $('#photoDetailerForm').submit(false);
   
   var photoResize = function() {
     var scale = (2 * Number($matWidth.val())) + (2 * Number($frameWidth.val())) + photoWidth;
     $frame.css('border-width', ($frameWidth.val()/scale * 24 + 'em'));
-    $photo.css('border-width', ($matWidth.val()/scale * 24 + 'em'));
+    $photo.css({
+      'border-width': ($matWidth.val()/scale * 24 + 'em'),
+      'width': (24 - ($frameWidth.val()/scale * 24) + 'em'),
+    });
+
   }
 
   var profiles = [{
@@ -62,12 +66,38 @@ var init = function() {
     $photo.css('border-color', $(this).val());
   });
   $style.change(function() {
-
+    var photoArea = photoWidth * photoHeight
+    var newFrame;
+    var newMat;
     if ($(this).val() == 'ratio') {
       $frameWidth.attr('disabled', true);
-      $frameWidth.val(1).change();
       $matWidth.attr('disabled', true);
-      $matWidth.val(1).change();
+      if (photoArea > 900) {
+        newFrame = 1.25;
+        newMat = 3
+      }
+      else if(photoArea > 600 && photoArea <= 900) {
+        newFrame = 1.25;
+        newMat = 2.5
+      }
+      else if(photoArea > 480 && photoArea <= 600) {
+        newFrame = 0.75
+        newMat = 2.5
+      }
+      else if(photoArea > 360 && photoArea <= 480) {
+        newFrame = 0.75
+        newMat = 2
+      }
+      else if(photoArea > 180 && photoArea <= 360) {
+        newFrame = 0.75
+        newMat = 1.5
+      }
+      else {
+        newFrame = 0.75
+        newMat = 1
+      }
+      $frameWidth.val(newFrame).change();
+      $matWidth.val(newMat).change();
     }
     else {
       $frameWidth.attr('disabled', false);
